@@ -31,7 +31,9 @@
         const onsubmitForm = (e) => {
           e.preventDefault();
           if (parseInt(value) === first * second) {
-            setResult("정답: " + value);
+            setResult((prevResult) => {
+              return "정답: " + value;
+            });
             setFirst(Math.ceil(Math.random() * 9));
             setSecond(Math.ceil(Math.random() * 9));
             setValue("");
@@ -46,7 +48,7 @@
         return (
           <React.Fragment>
             <div>
-              {first} 곱하기 {second}는?
+              {first} 곱하기 {second}는???
             </div>
             <form onSubmit={onsubmitForm}>
               <input
